@@ -18,11 +18,11 @@ class DetecteurPersonne:
 
     def envoyer_alerte(self, chemin_image, heure_detection):
         données = {
-            "contenu": f"PERSONNE DÉTECTÉE À {heure_detection}",
+            "content": f"PERSONNE DÉTECTÉE À {heure_detection}",
         }
         with open(chemin_image, "rb") as fichier:
             fichiers = {
-                "fichier": (chemin_image, fichier),
+                "file": (chemin_image, fichier),
             }
             réponse = requests.post(self.webhook_url, data=données, files=fichiers)
         os.remove(chemin_image)
@@ -110,7 +110,7 @@ class InterfaceUtilisateur:
 
 
 if __name__ == "__main__":
-    webhook_url = "https://discord.com/api/webhooks/1101906867065720883/5VzXSBM0hrbfuILGtwXO8paXHcu9hD_gGNDPaLnPCYkQlSADNKY3VbF16ruS-SH2ursa"
+    webhook_url = "" #webhook url
     fenetre = Tk()
     interface = InterfaceUtilisateur(fenetre)
     fenetre.mainloop()
